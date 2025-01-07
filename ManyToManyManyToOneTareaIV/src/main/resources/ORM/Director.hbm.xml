@@ -1,0 +1,11 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+ 	<class name="entities.Director" table="directores">
+ 		<id name="idDirector" column="id_director" type="integer">
+ 			<generator class="increment"/>
+ 		</id>
+ 		<property name="nombreDirector" column="nombre_director" not-null="true" type="string"/>
+ 	</class>
+ </hibernate-mapping>

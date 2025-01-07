@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <hibernate-mapping>
+ 		<!--Asociamos con la tabla -->
+ 	<class name="entities.Pelicula" table="pelicula">
+ 		<!-- Relacion con los atributos de la tabla-->
+ 		<id name="idPelicula" column="idPelicula">
+ 			<generator class="increment"/>
+ 		</id>
+ 		<!-- La relacion con las columnas-->
+ 		<property name="titulo" column="titulo" type="string" not-null="true"/>
+ 		<property name="anio" column="anio_Estreno" type="string" not-null="true"/>
+ 		<property name="genero" column="genero" type="string" not-null="true"/>
+ 		<!-- Relacion muchos a uno Director-->
+		<many-to-one name="director" class="entities.Director" column="D_idDirector" cascade="all"/>
+ 		<!-- Relacion de muchos a muchos Actores-->
+ 		<set name="listaActores" table="pelicula_actores">
+ 			<key column="P_idPelicula"/>
+ 			<!-- Hacer referencia a la columna de la tabla con la clase-->
+ 			<many-to-many column="A_idActor" class="entities.Actor"/>
+ 		</set>
+ 	</class>
+ </hibernate-mapping>
