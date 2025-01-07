@@ -1,0 +1,5 @@
+entities\Director.class
+entities\Pelicula.class
+entities\HibernateUtil.class
+entities\Actor.class
+entities\Main.class
